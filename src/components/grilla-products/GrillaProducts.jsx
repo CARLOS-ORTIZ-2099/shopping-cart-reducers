@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 
-
-export const GrillaProducts = ({products, deleteProduct, addProduct, carrito}) => {
-
+export const GrillaProducts = ( {products, addProduct}) => {
 
   return (
     <>
@@ -15,13 +13,8 @@ export const GrillaProducts = ({products, deleteProduct, addProduct, carrito}) =
                         <div className="product" key={product.id}>
                             <h2>{product.name}</h2>
                             <img width={'250px'} src={product.image} alt="" />
-                            {
-                            carrito.cart.some((ele => ele.id  == product.id))  ?
-                            <button onClick={() => deleteProduct(product.id)}>eliminar</button>
-                            : 
-                            <button onClick={() => addProduct(product.id)}>comprar</button>
-                            } 
-                        
+                            <h3>{product.price}$</h3>
+                              <button onClick={() => addProduct(product.id)}>comprar</button>
                         </div>
                     ))
                 }

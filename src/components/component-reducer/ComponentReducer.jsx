@@ -10,16 +10,12 @@ import { Carrito } from "../carrito/carrito"
 
 export const ComponentReducer = () => {
     const [products, dispatchProducts] = useReducer(selectReducers, productsInitial)
-    console.log(products)
+    //console.log(products)
     const [carrito, dispatch] = useReducer(carritoReducers, shoppingCart)
     console.log(carrito)
 
     const addProduct = (id) => {
         dispatch( {type : TYPESACTIONS.ADD, id} )
-    }
-    const deleteProduct = (id) => {
-        /* el dispach es una funcion que me retorna el hookuseReducer, esta funcion despacha un objeto con la accion que sera procesada por la funcion reductora */
-        dispatch( {type : TYPESACTIONS.DELETE, id} )
     }
 
     const select = (e) => {
@@ -33,7 +29,6 @@ export const ComponentReducer = () => {
         <Carrito carrito={carrito} dispatch={dispatch}/>
         <SelectFilter select={select}/>
             <GrillaProducts products={products} 
-                deleteProduct={deleteProduct} 
                 addProduct={addProduct}
                 carrito={carrito}
             />
