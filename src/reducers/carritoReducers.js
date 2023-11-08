@@ -8,15 +8,15 @@ export const shoppingCart = { cart : [] , extra1:1, extra2:2}
 
 // funcion reductora
 export function carritoReducers(stateCurrent, actions) {
-//console.log(actions)
+
        switch(actions.type){
             case(TYPESACTIONS.ADD): {
-               // console.log(stateCurrent.cart)
+         
                let resp = stateCurrent.cart.some((element) => element.id == actions.id)
                if(resp){
                 console.log('entro a if')
                 let response = stateCurrent.cart.map((product) => product.id == actions.id? {...product, cantidad: product.cantidad+1 , total : (product.price)*(product.cantidad+1)}: product)
-               // console.log(response)
+          
                 return {...stateCurrent, cart: [...response]}
 
                }else{
